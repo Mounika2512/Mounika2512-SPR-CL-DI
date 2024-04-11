@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Squarer {
     /**
-     * TODO: Inject this field
+     * 
      */
-    Multiplier multiplier;
+    private final Multiplier multiplier;
 
     /**
      * Leverage the Multiplier dependency to multiply a value with itself.
@@ -23,6 +23,9 @@ public class Squarer {
      * @param value some number
      * @return value^2
      */
+    public Squarer(Multiplier multiplier) {
+        this.multiplier = multiplier;
+    }
     public double getSquare(double value){
         return multiplier.multiply(value, value);
     }
